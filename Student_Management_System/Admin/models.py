@@ -12,3 +12,4 @@ class Student(models.Model):
     phone=models.IntegerField()
     email=models.CharField(max_length=100)
     password=models.CharField(max_length=100)
+    image = models.ImageField(upload_to="images")

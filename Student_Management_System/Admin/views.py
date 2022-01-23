@@ -15,7 +15,7 @@ def show_data(request):
 
 def add_show(request):
     if request.method=='POST':
-        fm=StudentRegistration(request.POST)
+        fm=StudentRegistration(request.POST,request.FILES)
         if fm.is_valid():
             # name=fm.cleaned_data['name']
             # email=fm.cleaned_data['email']
@@ -26,9 +26,9 @@ def add_show(request):
             fm = StudentRegistration
     else:
         fm=StudentRegistration
-    stud=Student.objects.all()
 
-    return render(request,'Admin/addandshow.html',{'form':fm,'stu':stud})
+
+    return render(request,'Admin/addandshow.html',{'form':fm})
 
 def delete_data(request,id):
     if request.method=='POST':
